@@ -1,35 +1,38 @@
-import {createBrowserRouter,RouterProvider,} from "react-router-dom";
-import Header from "./components/header/Header";
-import SignUp from "./components/form/SignUp";
-import SignIn from "./components/form/SignIn";
-import Google from "./components/form/Google";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
+import AuthProvider from "./components/Authentication/AuthProvider";
+import Layout2 from "./components/Layout/Layout2";
+ import SignUp from './components/Form/SignUp'
+ import SignIn from './components/Form/SignIn'
+import Layout1 from "./components/Layout/Layout1";
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Header/>,
+    element: <Layout2/>,
+  },
+  {
+    path: '/layout',
+    element: <Layout1 />,
     children: [
       {
-        path: '/signup',
+        path: '/layout/signup',
         element : <SignUp/>
       },
       {
-        path: 'signin',
+        path: '/layout/signin',
         element : <SignIn/>
       },
-      {
-        path: '/google',
-        element : <Google/> 
-      }
     ]
-  }
-  
+  },
 ])
 
 function App() {
   return (
     <div>
-       <RouterProvider router={router}/>
-   </div>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+
+    </div>
   )
 }
 
