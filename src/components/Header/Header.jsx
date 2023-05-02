@@ -20,11 +20,13 @@ const Header = () => {
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/layout/signup'>Blog</Link></li>
                     <li> {
-                        user ? <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvHasxNkppi0NIOQQAiZbZRry9Mn7Bq6LNFw&usqp=CAU' />
-                                </div>
-                            </label> 
+                        user ? <div className="tooltip tooltip-bottom " data-tip={user.displayName}>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </label>
+                              </div>
                             : <button className='bg-slate-50 text-gray-900 p-2 rounded-lg text-sm' onClick={() => navigate('/layout/signin')}>Sign in</button>
                     }
                         
