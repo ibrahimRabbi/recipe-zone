@@ -4,6 +4,7 @@ import Layout2 from "./components/Layout/Layout2";
  import SignUp from './components/Form/SignUp'
  import SignIn from './components/Form/SignIn'
 import Layout1 from "./components/Layout/Layout1";
+import Recipe from "./components/Recipe/Recipe";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
     path: '/layout',
     element: <Layout1 />,
     children: [
+      {
+        path: '/layout/:id',
+        element: <Recipe />,
+        loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
+      },
       {
         path: '/layout/signup',
         element : <SignUp/>

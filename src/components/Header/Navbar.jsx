@@ -9,7 +9,7 @@ const Navbar = () => {
                     <Link to='/' className="text-2xl font-semibold">RecipeDotcom</Link>
                 </div>
                 <ul className="gap-7 font-semibold text-xl">
-                    <li><Link>Home</Link></li>
+                    <li><Link to='/'>Home</Link></li>
                     <li><Link>Blog</Link></li>
                     <li>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

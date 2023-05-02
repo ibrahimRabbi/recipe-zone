@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({ obj }) => {
-    const { name, photo, like, titel, totalRec, experiance } = obj;
+    const { name, photo, like, titel, totalRec, experiance,id } = obj;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure><img src={photo} alt="Shoes" /></figure>
@@ -11,7 +11,7 @@ const ChefCard = ({ obj }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{titel}</p>
                 <div className="card-actions justify-end">
-                    <Link><button className="btn btn-primary">View Recipes</button></Link>
+                    <Link to={`/layout/${id}`}><button className="btn btn-primary">View Recipes</button></Link>
                 </div>
             </div>
         </div>

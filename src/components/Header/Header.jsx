@@ -11,7 +11,7 @@ const Header = () => {
                
                 <ul className="flex justify-center items-center gap-6 text-slate-50 font-semibold ">
                     
-                    <li><Link>Home</Link></li>
+                    <li><Link to='/'>Home</Link></li>
                     <li><Link to='/layout/signup'>Blog</Link></li>
                     <li> 
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
