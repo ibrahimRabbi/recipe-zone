@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import { Link,useLocation,useNavigate } from 'react-router-dom';
 import { Context } from '../Authentication/AuthProvider';
 
@@ -7,9 +7,10 @@ const SignIn = () => {
     const location = useLocation()
     const go = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
-    const { signIn } = useContext(Context)
+    const { signIn} = useContext(Context)
 
-
+    const [error,setError] = useState('')
+ 
     const loginHandler = (e) => {
         const email = e.target.email.value
         const pass = e.target.password.value
@@ -17,15 +18,18 @@ const SignIn = () => {
         e.preventDefault()
         signIn(email, pass)
             .then(res => { 
-                if (res.user.emailVerified){
-                    alert('login succesfully')
-                    e.target.reset()
-                    navigate(go,{ replace: true })
-                } else {
-                    alert('your email is not valid please verify your email')
-                }
+                setError('')
+                alert('login successfully')
+                navigate('/')
              })
-        .catch(error=> console.log(error.message))
+            .catch(error => {
+                if (error.message == "Firebase: Error (auth/user-not-found).") {
+                    setError('user is not exist in this application plz provied a valid password and email')
+                } else if (error.message == 'Firebase: Error (auth/wrong-password).') {
+                    setError('invalid password plz provide a valid password')
+                }
+                console.log(error.message)
+        })
   }
 
     return (
@@ -34,9 +38,10 @@ const SignIn = () => {
             <form className="m-7 flex flex-col gap-7" onSubmit={loginHandler} action="">
                 <input type="email" name='email' placeholder="Email" className="input input-bordered border-purple-500 w-full" required />
                 <input type="password" name='password' placeholder="password" className="input input-bordered border-purple-500 w-full" required />
+                <p className='text-red-600 font-semibold mb-2'>{error}</p>
                 <input className=" font-semibold border bg-purple-500 p-3 rounded-lg text-slate-50" type="submit" value='Sign In' />
             </form>
-            <p className="font-semibold">dont have an account ? <Link to='/signup' className="text-purple-500 font-semibold">Register</Link></p>
+            <p className="font-semibold">dont have an account ? <Link to='/layout/signup' className="text-purple-500 font-semibold">Register</Link></p>
         </div>
     );
 };

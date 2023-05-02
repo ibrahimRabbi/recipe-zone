@@ -3,13 +3,12 @@ import { getAuth,
     onAuthStateChanged,
     signOut,
     signInWithEmailAndPassword,
-    sendEmailVerification,
     updateProfile
 } from "firebase/auth";
    
  import app from '../../firebase.config'
 import React, { createContext,useState,useEffect } from 'react';
-export const Context = createContext()
+export const Context = createContext();
 
 
 
@@ -24,12 +23,13 @@ export const Context = createContext()
           return createUserWithEmailAndPassword(auth,email,password)
      }
 
-     const emailVarification = (user) => {
-         return sendEmailVerification(user)
+    //  const emailVarification = (user) => {
+    //      return sendEmailVerification(user)
+    //  }
+     const profile = (user,name,photo) => {
+         updateProfile(user,{displayName:name,photoURL:photo})
      }
-     const profile = (user,name) => {
-         updateProfile(user,{displayName: name})
-     }
+
      const signIn = (email, pass) => {
          setLoading(true)
          return signInWithEmailAndPassword(auth,email,pass)
@@ -54,7 +54,6 @@ export const Context = createContext()
      
      const v = {
          signUp,
-         emailVarification,
          profile,
          signIn,
          logOut,
