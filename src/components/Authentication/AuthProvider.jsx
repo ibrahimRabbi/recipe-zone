@@ -61,7 +61,7 @@ export const Context = createContext()
          user,
          loading,
      }
-     console.log(user)
+
     return (
         <Context.Provider value={v}>
             {children}

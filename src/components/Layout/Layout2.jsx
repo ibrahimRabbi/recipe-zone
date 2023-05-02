@@ -1,13 +1,15 @@
 import React from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { Outlet } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
+import ChefSection from '../Chef/ChefSection';
 
 const Layout2 = () => {
+    const loader = useLoaderData()
     return (
         <div>
             <Header/>
-            <Outlet />
+            <ChefSection data={loader} />
             <Footer/>
         </div>
     );

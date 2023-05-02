@@ -3,9 +3,9 @@ import './header.css'
 import { Link } from 'react-router-dom';
 const Header = () => {
     return (
-        <header className="bg-center bg-no-repeat bg-cover h-screen ">
+        <header className="bg-center bg-no-repeat bg-cover h-screen block">
             <nav
-                className="flex justify-between items-center w-10/12 mx-auto bg-gradient-to-r from-purple-600 to-cyan-400 px-2.5 py-1 sticky top-6 rounded-lg ">
+                className="flex justify-between items-center w-10/12 mx-auto bg-gradient-to-r from-purple-600 to-cyan-400 px-2.5 py-1 sticky z-10 top-6 rounded-lg ">
                 
                 <h1 className="text-2xl font-bold">Recipe<span className="text-1xl text-slate-50">Dot</span>com...</h1>
                
