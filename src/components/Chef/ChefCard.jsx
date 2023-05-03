@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ChefCard = ({ obj }) => {
     const { name, photo, like, titel, totalRec, experiance,id } = obj;
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card mt-5 bg-base-100 shadow-xl">
             <figure><img src={photo} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>

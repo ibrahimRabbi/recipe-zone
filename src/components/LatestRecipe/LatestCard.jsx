@@ -2,7 +2,7 @@ import React from 'react';
 const LatestCard = ({ obj }) => {
     const {name,photoUrl} = obj
     return (
-        <div className="card w-96 glass">
+        <div className="card glass mt-4">
             <figure><img src={photoUrl} alt="car!" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
