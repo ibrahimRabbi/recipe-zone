@@ -8,7 +8,7 @@ const Navbar = () => {
     const { user } = useContext(Context)
 
     return (
-        <nav className='w-[100%] bg-purple-400'>
+        <nav className=" w-[100%] flex justify-between items-center mx-auto bg-gradient-to-r from-purple-600 to-cyan-400 px-2.5 sticky">
             <div className="navbar w-[90%] mx-auto">
                 <div className="flex-1">
                     <Link to='/' className="text-2xl font-semibold">RecipeDotcom</Link>
