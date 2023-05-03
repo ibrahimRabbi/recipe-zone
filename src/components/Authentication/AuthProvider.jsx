@@ -5,6 +5,7 @@ import { getAuth,
     signInWithEmailAndPassword,
     updateProfile,
     GoogleAuthProvider,
+    GithubAuthProvider,
     signInWithPopup
 } from "firebase/auth";
    
@@ -43,9 +44,13 @@ export const Context = createContext();
      
      const googleProvider = new GoogleAuthProvider();  
      const signinGoogle = () => {
-         signInWithPopup(auth, googleProvider)
-             .then(res => console.log(res.user))
-             .catch(error => console.log(error))
+        return signInWithPopup(auth, googleProvider)
+            
+     }
+     const githubProvider = new GithubAuthProvider();  
+     const signinGithub = () => {
+        return signInWithPopup(auth, githubProvider)
+            
      }
 
      
@@ -69,7 +74,9 @@ export const Context = createContext();
          logOut,
          user,
          loading,
-         signinGoogle
+         signinGoogle,
+         signinGithub
+         
      }
 
     return (

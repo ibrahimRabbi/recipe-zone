@@ -5,7 +5,7 @@ import {FaGoogle,FaGithub} from 'react-icons/fa'
 
 const SignUp = () => {
 
-    const { signUp, profile, signinGoogle } = useContext(Context)
+    const { signUp, profile, signinGoogle, signinGithub } = useContext(Context)
       const navigate = useNavigate()
     const [error, setError] = useState('');
     
@@ -25,10 +25,9 @@ const SignUp = () => {
                 navigate('/')
         })
             .catch(error => {
-                if (error.message == "Firebase: Password should be at least 6 characters (auth/weak-password).") {  
+                if (error.code == "Firebase: Password should be at least 6 characters (auth/weak-password).") {  
                     setError('please provied a password at least 6 characters')
-                }
-               
+                } 
             })
        
  
@@ -36,7 +35,18 @@ const SignUp = () => {
 
     const googleHandler = () => {
         signinGoogle()
-            
+            .then(res => {
+                console.log(res.user)
+                navigate('/')
+            })
+            .catch(error => console.log(error))
+}
+    const githubHandler = () => {
+          signinGithub()
+            .then(res => {
+                navigate('/')
+            })
+            .catch(error => console.log(error.message))
 }
 
 
@@ -59,7 +69,7 @@ const SignUp = () => {
                     <FaGoogle className='text-blue-400 text-xl' />
                     Continue with Google
                 </button>
-                <button className="btn btn-outline border-purple-600 flex gap-1 items-center">
+                <button onClick={githubHandler} className="btn btn-outline border-purple-600 flex gap-1 items-center">
                     <FaGithub className='text-xl'/>
                     Continue with Github
                 </button>
