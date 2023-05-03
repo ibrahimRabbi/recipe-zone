@@ -1,14 +1,17 @@
 import React from 'react';
  import './recipe.css'
+import { FaHeart } from 'react-icons/fa';
+import Rating from 'react-rating';
+
 
 const RecipeCard = ({ recipeData }) => {
     const {recipeName,ingradiants,mathod}=recipeData
     
     return (
         
-        <div className='rounded-lg border-purple-600 border-2 px-10 py-8 mt-10'>
+        <div className='rounded-lg border-purple-600 border-2 px-10 py-8 mt-10 bg-slate-100'>
             <h1 className='text-center font-bold text-3xl'>{recipeName}</h1>
-            <hr className='mt-4 border-2' />
+            <hr className='mt-4 border-2 border-purple-400'/>
             <div className='grid recipe mt-10'>
                 <div className='font-semibold'>
                     <h1 className='text-2xl'>Ingradiants</h1>
@@ -18,7 +21,18 @@ const RecipeCard = ({ recipeData }) => {
                     <h1 className='text-2xl'>Cooking mathod</h1>
                     <ol className='ml-10 mt-3'>{mathod.map(v => <li className='list-decimal mt-2' key={Math.random()}>{v}</li>)}</ol>
                 </div>
-                </div>
+            </div>
+            <div className='flex justify-between mt-5'>
+                
+                    <Rating
+                        placeholderRating={3.5}
+                        emptySymbol={<img src="assets/images/star-grey.png" className="icon" />}
+                        placeholderSymbol={<img src="assets/images/star-red.png" className="icon" />}
+                        fullSymbol={<img src="assets/images/star-yellow.png" className="icon" />}
+                    />
+                
+                <button className='text-md bg-slate-50 p-3 rounded-xl flex gap-1 items-center'><FaHeart className='text-red-500'/> add to Favorite</button>
+            </div>
             </div>
        
     );

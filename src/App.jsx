@@ -5,6 +5,7 @@ import Layout2 from "./components/Layout/Layout2";
  import SignIn from './components/Form/SignIn'
 import Layout1 from "./components/Layout/Layout1";
 import Recipe from "./components/Recipe/Recipe";
+import PrivetRoute from "./components/privet/PrivetRoute";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/layout/:id',
-        element: <Recipe />,
+        element: <PrivetRoute><Recipe/></PrivetRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/chef/${params.id}`)
       },
       {
