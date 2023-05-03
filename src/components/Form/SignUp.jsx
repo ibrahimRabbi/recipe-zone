@@ -25,9 +25,12 @@ const SignUp = () => {
                 navigate('/')
         })
             .catch(error => {
-                if (error.code == "Firebase: Password should be at least 6 characters (auth/weak-password).") {  
+                if (error.message == "Firebase: Password should be at least 6 characters (auth/weak-password).") {  
                     setError('please provied a password at least 6 characters')
                 } 
+                if (error.message == "Firebase: Error (auth/email-already-in-use).") {
+                     setError('this email already have an account')
+                 }
             })
        
  
@@ -62,7 +65,7 @@ const SignUp = () => {
                 <p className='text-red-600 font-semibold mb-2'>{error}</p>
                 <input className=" font-semibold border bg-purple-500 p-3 rounded-lg text-slate-50" type="submit" value='Sign Up' />
             </form>
-            <p className="font-semibold">already have an account ? <Link to='/layout/signin' className="text-purple-500 font-semibold">Sign In</Link></p>
+            <p className="font-semibold">already have an account ? <Link to='/signin' className="text-purple-500 font-semibold">Sign In</Link></p>
             <span className="text-xl font-semibold text-gray-600">or</span>
             <div className="flex flex-col gap-3 w-[60%] m-auto mt-7">
                 <button onClick={googleHandler} className="btn btn-outline border-purple-600 flex gap-1 items-center">

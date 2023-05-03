@@ -16,7 +16,7 @@ const ChefCard = ({ obj }) => {
                     <h1 className='flex flex-col border border-purple-500 p-3 rounded-md text-lg text-center font-semibold'>{like}+<span>Likes</span></h1>
                 </div>
                  
-                    <Link to={`/layout/${id}`}><button className="btn btn-primary w-[100%] mt-5">View Recipes</button></Link>
+                    <Link to={`/${id}`}><button className="btn btn-primary w-[100%] mt-5">View Recipes</button></Link>
                 
             </div>
         </div>

@@ -5,7 +5,7 @@ import Layout2 from "./components/Layout/Layout2";
  import SignIn from './components/Form/SignIn'
 import Layout1 from "./components/Layout/Layout1";
 import Recipe from "./components/Recipe/Recipe";
-//import PrivetRoute from "./components/privet/PrivetRoute";
+import PrivetRoute from "./components/privet/PrivetRoute";
 import Blog from "./components/Blog/Blog";
 import Error from "./components/utility/Error";
 
@@ -30,8 +30,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/:id',
-        element: <Recipe/>,
+        element: <PrivetRoute><Recipe/></PrivetRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`),
+      },
+      {
+        path: '/blog',
+        element : <Blog/>
       }
     ]
   },

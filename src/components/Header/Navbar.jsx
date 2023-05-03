@@ -15,7 +15,7 @@ const Navbar = () => {
                 </div>
                 <ul className="gap-7 font-semibold text-xl">
                     <li><ActiveLink to='/'>Home</ActiveLink></li>
-                    <li><ActiveLink to='/layout/blog'>Blog</ActiveLink></li>
+                    <li><ActiveLink to='/blog'>Blog</ActiveLink></li>
                     <li>{
                         user ? <div className="tooltip tooltip-bottom " data-tip={user.displayName}>
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -24,7 +24,7 @@ const Navbar = () => {
                                 </div>
                             </label> 
                               </div>
-                            : <button className='bg-slate-50 p-2 rounded-lg text-lg' onClick={() => navigate('/layout/signin')}>Sign in</button>
+                            : <button className='bg-slate-50 p-2 rounded-lg text-lg' onClick={() => navigate('/signin')}>Sign in</button>
                       }
                        
     

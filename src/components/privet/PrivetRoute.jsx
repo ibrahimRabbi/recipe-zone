@@ -22,7 +22,7 @@ const PrivetRoute = ({ children }) => {
     if (user) {
         return children
     }
-    return <Navigate to='/layout/signin'/>  
+    return <Navigate to='/signin'/>  
 };
 
 export default PrivetRoute;
