@@ -4,12 +4,12 @@ import RecipeCard from './RecipeCard';
 
 const Recipe = () => {
      
-    const { name, photo, like, titel, totalRec, experiance, id, recipe } = useLoaderData();
+    const { name, photo, like, titel, totalRec, experiance, recipe } = useLoaderData();
 
     return (
         <section>
             <div className="card lg:card-side w-[90%] mx-auto bg-slate-100 mt-11 shadow-xl">
-                <figure><img src={photo} alt="Album"/></figure>
+                <figure><img className='w-[100%]' src={photo} alt="Album"/></figure>
                 <div className="card-body">
                     <h2 className="card-title text-2xl font-semibold">{name}</h2>
                     <p>{titel}</p>
