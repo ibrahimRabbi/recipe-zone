@@ -1,7 +1,7 @@
 import React, { useContext,useState } from 'react';
 import { Link,useLocation,useNavigate } from 'react-router-dom';
 import { Context } from '../Authentication/AuthProvider';
-
+import { FaGoogle, FaGithub } from 'react-icons/fa'
 
 const SignIn = () => {
     const location = useLocation()
@@ -42,6 +42,17 @@ const SignIn = () => {
                 <input className=" font-semibold border bg-purple-500 p-3 rounded-lg text-slate-50" type="submit" value='Sign In' />
             </form>
             <p className="font-semibold">dont have an account ? <Link to='/layout/signup' className="text-purple-500 font-semibold">Register</Link></p>
+            <span className="text-xl font-semibold text-gray-600">or</span>
+            <div className="flex flex-col gap-3 w-[60%] m-auto mt-7">
+                <button className="btn btn-outline border-purple-600 flex gap-1 items-center">
+                    <FaGoogle className='text-blue-400 text-xl' />
+                    Continue with Google
+                </button>
+                <button className="btn btn-outline border-purple-600 flex gap-1 items-center">
+                    <FaGithub className='text-xl' />
+                    Continue with Github
+                </button>
+            </div>
         </div>
     );
 };

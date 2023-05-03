@@ -3,7 +3,9 @@ import { getAuth,
     onAuthStateChanged,
     signOut,
     signInWithEmailAndPassword,
-    updateProfile
+    updateProfile,
+    GoogleAuthProvider,
+    signInWithPopup
 } from "firebase/auth";
    
  import app from '../../firebase.config'
@@ -27,7 +29,7 @@ export const Context = createContext();
     //      return sendEmailVerification(user)
     //  }
      const profile = (user,name,photo) => {
-         updateProfile(user,{displayName:name,photoURL:photo})
+        return updateProfile(user,{displayName:name,photoURL:photo})
      }
 
      const signIn = (email, pass) => {
@@ -39,7 +41,15 @@ export const Context = createContext();
           return signOut(auth)
       }
      
-   
+     const googleProvider = new GoogleAuthProvider();  
+     const signinGoogle = () => {
+         signInWithPopup(auth, googleProvider)
+             .then(res => console.log(res.user))
+             .catch(error => console.log(error))
+     }
+
+     
+     
      useEffect(() => {
          const subscribe = onAuthStateChanged(auth, (user) => {
              setUser(user)
@@ -59,6 +69,7 @@ export const Context = createContext();
          logOut,
          user,
          loading,
+         signinGoogle
      }
 
     return (

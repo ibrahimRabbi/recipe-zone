@@ -19,7 +19,7 @@ const LatestRecipe = () => {
             </div>
             <div className='w-[90%] mx-auto grid grid-cols-3 gap-6 mt-8'>
                 {
-                    data.map(v => <LatestCard obj={v} />)
+                    data.map(v => <LatestCard key={Math.random()} obj={v} />)
                 }
             </div>
         </section>
