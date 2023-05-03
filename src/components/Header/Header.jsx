@@ -2,7 +2,7 @@ import React,{useContext} from 'react';
 import './header.css'
 import { Link ,useNavigate} from 'react-router-dom';
 import { Context } from '../Authentication/AuthProvider';
-
+import ActiveLink from '../utility/ActiveLink';
 
 const Header = () => {
     const navigate = useNavigate()
@@ -17,8 +17,8 @@ const Header = () => {
                
                 <ul className="flex justify-center items-center gap-6 text-slate-50 font-semibold ">
                     
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/layout/signup'>Blog</Link></li>
+                    <li><ActiveLink to='/'>Home</ActiveLink></li>
+                    <li><ActiveLink to='/layout/blog'>Blog</ActiveLink></li>
                     <li> {
                         user ? <div className="tooltip tooltip-bottom " data-tip={user.displayName}>
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../Authentication/AuthProvider';
- 
+ import ActiveLink from '../utility/ActiveLink';
 
 const Navbar = () => {
     const navigate = useNavigate()
@@ -14,8 +14,8 @@ const Navbar = () => {
                     <Link to='/' className="text-2xl font-semibold">RecipeDotcom</Link>
                 </div>
                 <ul className="gap-7 font-semibold text-xl">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link>Blog</Link></li>
+                    <li><ActiveLink to='/'>Home</ActiveLink></li>
+                    <li><ActiveLink to='/layout/blog'>Blog</ActiveLink></li>
                     <li>{
                         user ? <div className="tooltip tooltip-bottom " data-tip={user.displayName}>
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

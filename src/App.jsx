@@ -6,6 +6,7 @@ import Layout2 from "./components/Layout/Layout2";
 import Layout1 from "./components/Layout/Layout1";
 import Recipe from "./components/Recipe/Recipe";
 import PrivetRoute from "./components/privet/PrivetRoute";
+import Blog from "./components/Blog/Blog";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/layout/signin',
         element : <SignIn/>
+      },
+      {
+        path: '/layout/blog',
+        element : <Blog/>
       },
     ]
   },
