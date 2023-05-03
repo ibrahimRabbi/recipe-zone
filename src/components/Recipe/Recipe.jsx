@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Recipe = () => {
      
     const { name, photo, like, titel, totalRec, experiance, recipe } = useLoaderData();
@@ -26,6 +27,7 @@ const Recipe = () => {
                 <h1 className='text-2xl font-semibold mb-2'>My Recipes</h1>
                 <p className='text-sm font-semibold'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum at, velit fugiat facilis quo dolores?</p>
                 <hr className='mt-2 border border-purple-600' />
+                <ToastContainer/>
             </div>
             <div className='mt-16 w-[90%] mx-auto'>
                 {

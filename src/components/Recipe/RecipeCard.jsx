@@ -3,7 +3,9 @@ import React from 'react';
 import { FaHeart,FaStar,FaRegStar } from 'react-icons/fa';
 import Rating from 'react-rating';
 import { useState } from 'react';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+ 
 
 const RecipeCard = ({ recipeData }) => {
     const { recipeName, ingradiants, mathod, rating } = recipeData
@@ -11,6 +13,7 @@ const RecipeCard = ({ recipeData }) => {
 
     const handler = () => {
         setDisabl(true)
+        toast('it have been added to favoruite')
     }
     
     return (
@@ -37,7 +40,8 @@ const RecipeCard = ({ recipeData }) => {
                         fullSymbol={ <FaStar/>}
                     />
                 
-                <button onClick={handler}
+                <button
+                    onClick={handler}
                     disabled={disabl}
                     className={`flex gap-1 rounded-xl items-center font-semibold p-3  ${disabl ? "opacity-60 bg-slate-500" : 'text-md bg-slate-300 '}`}>
                     <FaHeart className='text-red-500' /> add to Favorite
