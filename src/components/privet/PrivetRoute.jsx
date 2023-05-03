@@ -6,7 +6,7 @@ const PrivetRoute = ({ children }) => {
     
     const { user,loading } = useContext(Context)
     if (loading) {
-        return <div className='flex justify-center mt-60 '>
+        return <div className='flex justify-center py-40 '>
             <BallTriangle
                 height={100}
                 width={100}

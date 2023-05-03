@@ -30,10 +30,10 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <div className="tooltip tooltip-bottom " data-tip={user?.displayName}>
+                        user ? <div className="tooltip tooltip-bottom " data-tip={user.displayName}>
                             <label className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user?.photoURL} />
+                                    <img src={user.photoURL} />
                                 </div>
                             </label>
                         </div>

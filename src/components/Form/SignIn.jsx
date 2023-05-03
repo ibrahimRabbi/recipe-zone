@@ -36,7 +36,6 @@ const SignIn = () => {
     const googleHandler = () => {
         signinGoogle()
             .then(res => {
-                console.log(res.user)
                 navigate('/')
             })
             .catch(error => console.log(error))
