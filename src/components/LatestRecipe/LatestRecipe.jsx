@@ -5,7 +5,7 @@ const LatestRecipe = () => {
     const [data, setData] = useState(null)
     
     useEffect(() => {
-        fetch('http://localhost:5000/latest') 
+        fetch('https://server-recipe.vercel.app/latest') 
             .then(res => res.json())
         .then(res=>setData(res))
     }, [])
