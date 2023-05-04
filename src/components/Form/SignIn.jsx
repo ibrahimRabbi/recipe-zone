@@ -18,8 +18,7 @@ const SignIn = () => {
         e.preventDefault()
         signIn(email, pass)
             .then(res => { 
-                setError('')
-                alert('login successfully')
+                setError('')  
                 navigate(go,{replace:true})
              })
             .catch(error => {

@@ -5,7 +5,7 @@ import { Context } from '../Authentication/AuthProvider';
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const { user } = useContext(Context)
+    const { user,logOut } = useContext(Context)
 
     return (
         <nav className='bg-gradient-to-r from-purple-600 to-cyan-400'>
@@ -32,12 +32,15 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <div className="tooltip tooltip-bottom " data-tip={user.displayName}>
-                            <label className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src={user.photoURL} />
-                                </div>
-                            </label>
+                        user ? <div className='flex items-center gap-3'>
+                            <div className="tooltip tooltip-bottom " data-tip={user.displayName}>
+                                <label className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </label>
+                            </div>
+                            <button className='bg-slate-200 p-2 rounded-lg text-md font-semibold' onClick={() =>logOut() }>Sign out</button>
                         </div>
                             : <button className='bg-slate-200 p-2 rounded-lg text-md font-semibold' onClick={() => navigate('/signin')}>Sign in</button>
                     }
