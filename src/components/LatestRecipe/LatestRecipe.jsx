@@ -11,7 +11,7 @@ const LatestRecipe = () => {
     }, [])
     if (data) {
         return (
-            <section>
+            <section className='mt-10'>
                 <div className='lg:w-[40%] w-[80%] text-center mx-auto'>
                     <h1 className='text-2xl font-semibold mb-2'>Latest recipes</h1>
                     <p className='text-sm font-semibold'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum at, velit fugiat facilis quo dolores?</p>

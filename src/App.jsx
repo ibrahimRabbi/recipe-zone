@@ -8,7 +8,7 @@ import Recipe from "./components/Recipe/Recipe";
 import PrivetRoute from "./components/privet/PrivetRoute";
 import Blog from "./components/Blog/Blog";
 import Error from "./components/utility/Error";
-
+import LatestRecipe from "./components/LatestRecipe/LatestRecipe";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -35,6 +35,11 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element : <Blog/>
+      },
+      {
+        path: '/latest',
+        element : <LatestRecipe/>
+        
       }
     ]
   },

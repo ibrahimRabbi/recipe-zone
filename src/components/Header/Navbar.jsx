@@ -18,6 +18,7 @@ const Navbar = () => {
                         <ul tabIndex={0} className="menu menu-compact text-slate-900 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><ActiveLink to='/'>Home</ActiveLink></li>
                             <li><ActiveLink to='/blog'>Blog</ActiveLink></li>
+                            <li><ActiveLink to='/latest'>Latest recipes</ActiveLink></li>
                         </ul>
                     </div>
                     <Link className="text-2xl text-slate-50 normal-case">Recipe Zone</Link>
@@ -26,6 +27,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal text-slate-50 text-lg font-semibold px-1">
                         <li><ActiveLink to='/'>Home</ActiveLink></li>
                         <li><ActiveLink to='/blog'>Blog</ActiveLink></li>
+                        <li><ActiveLink to='/latest'>Latest recipes</ActiveLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
