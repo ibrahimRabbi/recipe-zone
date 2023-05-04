@@ -1,11 +1,11 @@
 import React,{useContext,useState} from 'react';
 import { Link,useLocation,useNavigate } from 'react-router-dom';
 import { Context } from '../Authentication/AuthProvider';
-import {FaGoogle,FaGithub} from 'react-icons/fa'
+import SigninProvider from './SigninProvider';
 
 const SignUp = () => {
 
-    const { signUp, profile, signinGoogle, signinGithub } = useContext(Context)
+    const { signUp, profile} = useContext(Context)
       const navigate = useNavigate()
     const [error, setError] = useState('');
     
@@ -36,21 +36,7 @@ const SignUp = () => {
  
     }
 
-    const googleHandler = () => {
-        signinGoogle()
-            .then(res => {
-                console.log(res.user)
-                navigate('/')
-            })
-            .catch(error => console.log(error))
-}
-    const githubHandler = () => {
-          signinGithub()
-            .then(res => {
-                navigate('/')
-            })
-            .catch(error => console.log(error.message))
-}
+     
 
 
 
@@ -67,17 +53,8 @@ const SignUp = () => {
             </form>
             <p className="font-semibold">already have an account ? <Link to='/signin' className="text-purple-500 font-semibold">Sign In</Link></p>
             <span className="text-xl font-semibold text-gray-600">or</span>
-            <div className="flex flex-col gap-3 w-[60%] m-auto mt-7">
-                <button onClick={googleHandler} className="btn btn-outline border-purple-600 flex gap-1 items-center">
-                    <FaGoogle className='text-blue-400 text-xl' />
-                    Continue with Google
-                </button>
-                <button onClick={githubHandler} className="btn btn-outline border-purple-600 flex gap-1 items-center">
-                    <FaGithub className='text-xl'/>
-                    Continue with Github
-                </button>
-            </div>
-
+             
+            <SigninProvider redirect='/'/>
         </section>
     );
 };

@@ -1,14 +1,15 @@
 import React, { useContext,useState } from 'react';
 import { Link,useLocation,useNavigate } from 'react-router-dom';
 import { Context } from '../Authentication/AuthProvider';
-import { FaGoogle, FaGithub } from 'react-icons/fa'
+import SigninProvider from './SigninProvider';
+ 
+
 
 const SignIn = () => {
     const location = useLocation();
     const go = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
-    const { signIn, signinGoogle, signinGithub } = useContext(Context)
-
+    const { signIn} = useContext(Context)
     const [error,setError] = useState('')
  
     const loginHandler = (e) => {
@@ -31,26 +32,6 @@ const SignIn = () => {
         })
   }
 
-
-    const googleHandler = () => {
-        signinGoogle()
-            .then(res => {
-                navigate(go,{replace:true})
-            })
-            .catch(error => console.log(error))
-    }
-    const githubHandler = () => {
-        signinGithub()
-            .then(res => {
-                navigate(go,{replace:true})
-            })
-            .catch(error => console.log(error.message))
-    }
-
-
-
-    
-
     return (
         <div className="text-center m-auto my-10 py-5 border rounded-lg lg:w-[50%] w-[90%]">
             <h1 className="text-purple-600 text-2xl font-semibold">Sign In</h1>
@@ -63,16 +44,7 @@ const SignIn = () => {
             <p className="font-semibold">dont have an account ? <Link to='/signup' className="text-purple-500 font-semibold">Register</Link></p>
             <span className="text-xl font-semibold text-gray-600">or</span>
 
-            <div className="flex flex-col gap-3 w-[60%] m-auto mt-7">
-                <button onClick={googleHandler} className="btn btn-outline border-purple-600 flex gap-1 items-center">
-                    <FaGoogle className='text-blue-400 text-xl' />
-                    Continue with Google
-                </button>
-                <button onClick={githubHandler} className="btn btn-outline border-purple-600 flex gap-1 items-center">
-                    <FaGithub className='text-xl' />
-                    Continue with Github
-                </button>
-            </div>
+            <SigninProvider redirect={go} />   
         </div>
     );
 };
