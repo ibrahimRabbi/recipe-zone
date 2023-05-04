@@ -5,7 +5,7 @@ const LatestRecipe = () => {
     const [data, setData] = useState(null)
     
     useEffect(() => {
-        fetch('https://server-recipe.vercel.app/latest') 
+        fetch('https://server-recipe-ibrahimrabbi.vercel.app/latest') 
             .then(res => res.json())
         .then(res=>setData(res))
     }, [])

@@ -7,7 +7,7 @@ const ChefSection = () => {
     const [data, setData] = useState(null)
     
     useEffect(() => {
-        fetch('https://server-recipe.vercel.app/chef')
+        fetch('https://server-recipe-ibrahimrabbi.vercel.app/chef')
             .then(res => res.json())
             .then(res=>setData(res))
     },[])

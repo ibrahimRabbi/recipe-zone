@@ -9,9 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
  
 
 const RecipeCard = ({ recipeData }) => {
-    const { recipeName, ingradiants, mathod, rating } = recipeData
+    const { recipeName, ingradiants, mathod, rating,img,text} = recipeData
     const [disabl,setDisabl] =useState(false)
-
+ 
     const handler = () => {
         setDisabl(true)
         toast('it have been added to favoruite')
@@ -20,7 +20,13 @@ const RecipeCard = ({ recipeData }) => {
     return (
         
         <div className='rounded-lg border-purple-600 border-2 px-10 py-8 mt-10 bg-slate-50'>
-            <h1 className='text-center font-bold text-3xl'>{recipeName}</h1>
+            <div className='grid recipe gap-5 items-center'>
+                <img className='rounded-lg' src={img} alt="" />
+                <div>
+                    <h1 className='font-bold text-3xl'>{recipeName}</h1>
+                    <p className='font-semibold'>{text}</p>
+                </div>
+           </div>
             <hr className='mt-4 border-2 border-purple-400'/>
             <div className='grid recipe mt-10'>
                 <div className='font-semibold'>
