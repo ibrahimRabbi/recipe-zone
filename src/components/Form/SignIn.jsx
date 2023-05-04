@@ -4,7 +4,7 @@ import { Context } from '../Authentication/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 
 const SignIn = () => {
-    const location = useLocation()
+    const location = useLocation();
     const go = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
     const { signIn, signinGoogle, signinGithub } = useContext(Context)
@@ -20,7 +20,7 @@ const SignIn = () => {
             .then(res => { 
                 setError('')
                 alert('login successfully')
-                navigate('/')
+                navigate(go,{replace:true})
              })
             .catch(error => {
                 if (error.message == "Firebase: Error (auth/user-not-found).") {
@@ -36,14 +36,14 @@ const SignIn = () => {
     const googleHandler = () => {
         signinGoogle()
             .then(res => {
-                navigate('/')
+                navigate(go,{replace:true})
             })
             .catch(error => console.log(error))
     }
     const githubHandler = () => {
         signinGithub()
             .then(res => {
-                navigate('/')
+                navigate(go,{replace:true})
             })
             .catch(error => console.log(error.message))
     }

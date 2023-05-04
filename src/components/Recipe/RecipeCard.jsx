@@ -1,7 +1,8 @@
 import React from 'react';
  import './recipe.css'
 import { FaHeart,FaStar,FaRegStar } from 'react-icons/fa';
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,12 +34,7 @@ const RecipeCard = ({ recipeData }) => {
             </div>
             <div className='flex items-center justify-between mt-10'>
                 
-                    <Rating className='text-2xl text-red-500'
-                        placeholderRating={rating}
-                        emptySymbol={<FaRegStar/>}
-                        placeholderSymbol={<FaStar/>}
-                        fullSymbol={ <FaStar/>}
-                    />
+                <Rating style={{ maxWidth: 200 }} value={rating} readOnly />
                 
                 <button
                     onClick={handler}
